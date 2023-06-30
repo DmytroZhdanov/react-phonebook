@@ -17,3 +17,13 @@ export const Title2 = styled.div`
   font-weight: 700;
   margin-bottom: 12px;
 `;
+
+export const Wrapper = styled.div`
+  border: 1px solid #555555;
+  border-radius: 16px;
+  padding: 12px;
+`;
+
+export const Message = styled.p`
+  text-align: center;
+`
