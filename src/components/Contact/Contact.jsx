@@ -3,12 +3,12 @@ import PropTypes from 'prop-types';
 import { ContactItem, DeleteButton } from './Contact.styled';
 
 export class Contact extends Component {
-  handleDelete = name => {
-    this.props.onDeleteContact(name);
+  handleDelete = id => {
+    this.props.onDeleteContact(id);
   };
 
   render() {
-    const { name, number } = this.props;
+    const { name, number, id } = this.props;
     return (
       <ContactItem>
         <p>
@@ -17,7 +17,7 @@ export class Contact extends Component {
         <DeleteButton
           type="button"
           onClick={() => {
-            this.handleDelete(name);
+            this.handleDelete(id);
           }}
         >
           Delete
@@ -28,6 +28,7 @@ export class Contact extends Component {
 }
 
 Contact.propTypes = {
+  id: PropTypes.string.isRequired,
   name: PropTypes.string.isRequired,
   number: PropTypes.string.isRequired,
   onDeleteContact: PropTypes.func.isRequired,

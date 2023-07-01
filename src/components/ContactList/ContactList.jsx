@@ -11,6 +11,7 @@ export class ContactList extends Component {
           return (
             <Contact
               key={id}
+              id={id}
               name={name}
               number={number}
               onDeleteContact={this.props.onDeleteContact}

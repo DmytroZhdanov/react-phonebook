@@ -12,7 +12,7 @@ export class App extends Component {
 
   formSubmitHandler = newContact => {
     const matchedContact = this.state.contacts.find(
-      ({ name }) => name === newContact.name
+      ({ name }) => name.toLowerCase() === newContact.name.toLowerCase()
     );
     if (matchedContact) {
       alert(`${newContact.name} is already in contacts.`);
@@ -29,10 +29,10 @@ export class App extends Component {
     this.setState({ filter: filterQuery });
   };
 
-  contactDeleteHandler = nameToDelete => {
+  contactDeleteHandler = idToDelete => {
     this.setState(prevState => {
       const newContactsArr = [...prevState.contacts].filter(
-        ({ name }) => name !== nameToDelete
+        ({ id }) => id !== idToDelete
       );
       return { contacts: newContactsArr };
     });
