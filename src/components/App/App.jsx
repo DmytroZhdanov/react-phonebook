@@ -19,9 +19,7 @@ export class App extends Component {
       return;
     }
     this.setState(prevState => {
-      const contactsArr = [...prevState.contacts];
-      contactsArr.push(newContact);
-      return { contacts: contactsArr };
+      return { contacts: [...prevState.contacts, newContact] };
     });
   };
 
@@ -61,7 +59,9 @@ export class App extends Component {
                   onDeleteContact={this.contactDeleteHandler}
                 />
               ) : (
-                <Message>Sorry, we didn't find any contacts matching your query</Message>
+                <Message>
+                  Sorry, we didn't find any contacts matching your query
+                </Message>
               )}
             </>
           ) : (
